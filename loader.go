@@ -290,9 +290,9 @@ func (dockerLoader *DockerLoader) updateServer(wg *sync.WaitGroup, server string
 	log := logger()
 	log.Info("Sending configuration to", zap.String("server", server))
 
-	url := "http://" + server + ":2019/load"
+//	url := "http://" + server + ":2019/load"
 
-	postBody, err := addAdminListen(dockerLoader.lastJSONConfig, "tcp/"+server+":2019")
+//	postBody, err := addAdminListen(dockerLoader.lastJSONConfig, "tcp/"+server+":2019")
 	if err != nil {
 		log.Error("Failed to add admin listen to", zap.String("server", server), zap.Error(err))
 		return
@@ -333,8 +333,8 @@ func addAdminListen(configJSON []byte, listen string) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	config.Admin = &caddy.AdminConfig{
-		Listen: listen,
-	}
+//	config.Admin = &caddy.AdminConfig{
+//		Listen: listen,
+//	}
 	return json.Marshal(config)
 }
