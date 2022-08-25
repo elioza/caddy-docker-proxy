@@ -333,8 +333,8 @@ func addAdminListen(configJSON []byte, listen string) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-//	config.Admin = &caddy.AdminConfig{
-//		Listen: listen,
-//	}
+	config.Admin = &caddy.AdminConfig{
+		Listen: listen,
+	}
 	return json.Marshal(config)
 }
